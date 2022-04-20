@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<!--    parent is from where your theme is inheriting -->
+<!--    Light is text colour type and our actionBar will be dark-->
+<!--    Theme applies to the whole app (to all textViews and everything -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar" >
+<!--    customizing (overwriting the atributes of parent) our theme -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorBlue</item>
+        <item name="android:font">@font/monster_font</item>
+        <item name="fontFamily">@font/monster_font</item>
+    </style>
+
+    <style name="Header" parent="TextAppearance.AppCompat" >
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="HeaderSmall" parent="@style/Header" >
+        <item name="android:textStyle">italic</item>
+        <item name="android:textColor">@color/gray</item>
+    </style>
+    
+</resources>

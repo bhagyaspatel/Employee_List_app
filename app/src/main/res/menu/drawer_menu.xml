@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/action"
+        android:checkableBehavior="none" >
+        <item
+            android:id="@+id/add"
+            android:title="@string/add_new_employee"/>
+    </group>
+
+    <group
+        android:id="@+id/importExport"
+        android:checkableBehavior="none">
+        <item android:id="@+id/exportEmp"
+            android:title="Export Employee Data"/>
+        <item android:id="@+id/importEmp"
+            android:title="Import Employee Data"/>
+    </group>
+
+    <group android:id="@+id/staticPages"
+        android:checkableBehavior="none">
+        <item android:id="@+id/contactPage"
+            android:icon="@drawable/ic_contact_support"
+            android:title="Cotact Us"/>
+        <item android:id="@+id/aboutPage"
+            android:icon="@drawable/ic_about"
+            android:title="About Us"/>
+    </group>
+</menu>

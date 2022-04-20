@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name" translatable="false">Company Employee</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="import_employee_data" translatable="false">Import Employee Data</string>
+    <string name="export_employee_data" translatable="false">Export Employee Data</string>
+    <string name="company_employees" translatable="false">Company Employees</string>
+    <string name="bhagya_star_pvt_ltd">Bhagya Star Pvt. Ltd.</string>
+    <string name="no_data_msg" translatable="false">There is no item to show. Please add employees by clicking the add button below.</string>
+    <string name="dummy_value" translatable="false">fafadaffafafafadaffafafafadaffafafafadaffafafafadaffafafafadaffafa fafadaffafafafadaffafafafadaffafafafadaffafafafadaffafafafadaffafafafadaffafafafadaffafafafadaffafafafadaffafafafadaffafafafadaffafafafadaffafafafadaffafafafadaffafafafadaffafafafadaffafafafadaffafa</string>
+    <string name="add_new_employee">Add new employee</string>
+    <string name="latest_employee_name">Latest Employee Name</string>
+</resources>

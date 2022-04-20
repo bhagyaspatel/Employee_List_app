@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.show.EmployeeShowFragment">
+
+
+<!--  AppBarLayout has to be direct child of Coordinate layout-->
+<!--  CollapsingToolbar has to be the direct child of appbar layout -->
+
+<!-- defines the scrolling behaviour of its children. It needs a
+ sibling view at the same level which tells it that scrolling happended
+ in our case it is NestedScroll View
+ -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar">
+
+<!--  name turns into toolbar on scrolling -->
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:collapsedTitleGravity="start|left"
+            app:expandedTitleGravity="bottom|center_horizontal"
+            app:title="Employee Example"
+            app:contentScrim="#E69D44">
+<!--  content scrim is for seeting the color of the toolbar after collapsing-->
+
+            <ImageView
+                android:id="@+id/backdrop"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                app:layout_collapseMode="parallax"
+                android:src="@drawable/backdrop"
+                app:layout_collapseParallaxMultiplier="0.5"/>
+<!-- paralalx means diff item going on diff speed & that speed is decided by Parallax Multiplier-->
+
+            <ImageView
+                android:id="@+id/employee_photoShow"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:src="@drawable/blank_photo"
+                android:elevation="8dp"
+                app:layout_collapseMode="parallax"
+                app:layout_collapseParallaxMultiplier="1.5"/>
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbarShow"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+
+                app:title=""/>
+<!--  collapseMode = pin means toolbar pins (comes) when it collapses -->
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+<!-- collapsing of appbar is defined by this layout_behavior -->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/firstLinear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/employee_ageShow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="40 years"
+                    android:textSize="14sp"
+                    android:gravity="center_horizontal"
+                    android:layout_weight="1"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/employee_RoleShow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Manager"
+                    android:gravity="center_horizontal"
+                    android:textSize="14sp"
+                    android:layout_weight="1"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/employee_ageShow" />
+
+
+                <TextView
+                    android:id="@+id/employee_GenderShow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Male"
+                    android:gravity="center_horizontal"
+                    android:textSize="14sp"
+                    android:layout_weight="1"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/employee_ageShow" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/secondLinear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/firstLinear">
+
+                <TextView
+                    android:id="@+id/employee_responsibilityShow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Responsibility"
+                    android:layout_marginTop="5dp"/>
+                    app:layout_constraintStart_toStartOf="parent"/>
+                <TextView
+                    android:id="@+id/employee_responsibilityTextShow"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:singleLine="false"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:id="@+id/employee_experienceShow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Experience"
+                    android:layout_marginTop="5dp"/>
+                <TextView
+                    android:id="@+id/employee_experienceTextShow"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:singleLine="false"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:id="@+id/employee_educationShow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Education"
+                    android:layout_marginTop="5dp"/>
+                <TextView
+                    android:id="@+id/employee_educationTextShow"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:singleLine="false"
+                    android:layout_weight="1"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/thirdLinear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/secondLinear"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/personalInfoShow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Personal Information"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:id="@+id/phoneLinear"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp">
+                    <TextView
+                        android:id="@+id/phoneShow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Phone:"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/PersonalInfo" />
+
+                    <TextView
+                        android:id="@+id/employee_phoneTextShow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/emailLinear"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp">
+                    <TextView
+                        android:id="@+id/emailShow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Email:"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/PersonalInfo" />
+
+                    <TextView
+                        android:id="@+id/employee_emailTextShow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/addressLinear"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp">
+                    <TextView
+                        android:id="@+id/addressShow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Address :"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/PersonalInfo" />
+
+                    <TextView
+                        android:id="@+id/employee_addressTextShow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="false" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

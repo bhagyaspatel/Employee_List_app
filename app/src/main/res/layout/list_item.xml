@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="16dp"
+    android:background="#F6EB86"
+    app:strokeColor="#cccccc"
+    app:cardCornerRadius="3dp"
+    app:contentPadding="10dp"
+    app:cardUseCompatPadding="false"
+    app:cardPreventCornerOverlap="true"
+    app:strokeWidth="1dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:id="@+id/employee_photo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="3dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="3dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/employee_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:text="Bhagya Patel"
+            style="@style/Header"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/employee_photo"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/employee_gender"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            style="@style/HeaderSmall"
+            android:fontFamily="@font/monstret_italic"
+            android:text="Male"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/employee_age"
+            app:layout_constraintTop_toBottomOf="@id/employee_role" />
+
+        <TextView
+            android:id="@+id/employee_role"
+            android:layout_width="0dp"
+            style="@style/HeaderSmall"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:text="Manager"
+            android:fontFamily="@font/monstret_italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/employee_photo"
+            app:layout_constraintTop_toBottomOf="@id/employee_name" />
+
+        <TextView
+            android:id="@+id/employee_age"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            style="@style/HeaderSmall"
+            android:fontFamily="@font/monstret_italic"
+            android:layout_marginTop="10dp"
+            android:text="42 years"
+            app:layout_constraintEnd_toStartOf="@id/employee_gender"
+            app:layout_constraintStart_toEndOf="@id/employee_photo"
+            app:layout_constraintTop_toBottomOf="@id/employee_role" />
+        
+        <ImageButton
+            android:id="@+id/edit_employeeBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/employee_photo"
+            app:layout_constraintBottom_toBottomOf="@id/employee_photo"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/ic_edit_black"
+            app:layout_constraintVertical_bias="0.482"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</com.google.android.material.card.MaterialCardView>
