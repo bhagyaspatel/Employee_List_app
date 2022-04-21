@@ -1,6 +1,7 @@
 package com.example.companyemployee.ui.list
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -14,7 +15,9 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.companyemployee.R
 import com.example.companyemployee.data.Employee
 import com.google.android.material.navigation.NavigationView
@@ -51,6 +54,15 @@ class EmployeeListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setupNavigationDrawer()
+
+        val swipeHandler = object : EmployeeListSwipeToDelete(requireActivity()) {
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val adapterX = employee_list.adapter as EmployeeAdapter
+                adapterX.removeItem(viewHolder.absoluteAdapterPosition)
+            }
+        }
+        val itemTouchHelper = ItemTouchHelper(swipeHandler)
+        itemTouchHelper.attachToRecyclerView(employee_list)
 
         viewModel.employees.observe(viewLifecycleOwner){
             if(it.isEmpty())

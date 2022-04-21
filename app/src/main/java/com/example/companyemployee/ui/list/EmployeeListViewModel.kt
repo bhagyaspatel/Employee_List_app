@@ -9,7 +9,7 @@ import com.example.companyemployee.data.list.EmployeeListRepository
 class EmployeeListViewModel(application: Application) : AndroidViewModel(application) {
     private val repo : EmployeeListRepository = EmployeeListRepository(application)
 
-    val employees : LiveData<List<Employee>> = repo.getEmployees()
+    val employees : LiveData<MutableList<Employee>> = repo.getEmployees()
 
     suspend fun InsertEmployee (employee : List <Employee>){
         return repo.insertEmployee(employee)

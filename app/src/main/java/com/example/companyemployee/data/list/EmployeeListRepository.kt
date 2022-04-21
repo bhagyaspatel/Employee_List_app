@@ -8,7 +8,7 @@ import com.example.companyemployee.data.EmployeeDatabase
 class EmployeeListRepository (context : Application) {
     private val employeeListDao : EmployeeListDao = EmployeeDatabase.getDataBase(context).employeeListDao()
 
-    fun getEmployees() : LiveData<List<Employee>>{
+    fun getEmployees() : LiveData<MutableList<Employee>>{
         return employeeListDao.getEmployee()
     }
 

@@ -14,7 +14,7 @@ import com.example.companyemployee.data.Gender
 import com.example.companyemployee.data.Role
 import kotlinx.android.extensions.LayoutContainer
 
-class EmployeeAdapter(list : List<Employee> , private val listener : (Boolean, Long) -> Unit) : RecyclerView.Adapter<EmployeeAdapter.employeeViewHolder>() {
+class EmployeeAdapter(list : MutableList<Employee> , private val listener : (Boolean, Long) -> Unit) : RecyclerView.Adapter<EmployeeAdapter.employeeViewHolder>() {
 
     val employeeList = list
 
@@ -61,10 +61,14 @@ class EmployeeAdapter(list : List<Employee> , private val listener : (Boolean, L
         }
 
         holder.responsibility?.text = currentItem.responsibility
-
     }
 
     override fun getItemCount(): Int {
         return employeeList.size
+    }
+
+    fun removeItem(position :Int){
+        employeeList.removeAt(position) //to use removeAt function we need mutable list
+        notifyItemRemoved(position)
     }
 }

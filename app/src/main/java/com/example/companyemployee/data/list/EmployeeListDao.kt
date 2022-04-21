@@ -10,7 +10,7 @@ import com.example.companyemployee.data.Employee
 @Dao
 interface EmployeeListDao {
     @Query ("SELECT * FROM employee ORDER BY name")
-    fun getEmployee () : LiveData<List<Employee>>
+    fun getEmployee () : LiveData<MutableList<Employee>>
 
     @Insert (onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertEmployee (employee : List <Employee>)
